@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Customer;
 use App\Product;
 
+
 class CustomerController extends Controller
 {
 
@@ -61,9 +62,10 @@ class CustomerController extends Controller
             $request->merge(['paid'=>0]);
          }
 
-         $customer  = new customer();
-         
+        $customer  = new customer();
+
 		$customer->fill($request->all())->save();
+
 		return redirect(url('customer'));          
 
     }

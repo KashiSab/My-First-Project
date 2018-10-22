@@ -52,7 +52,7 @@
                        if(response){
                         $('tr#'+id).remove();
                         swal({
-                              title: "Record Delete",
+                              title: "Record Deleted",
                               text: "You Record Delete Successfully",
                               icon: "success",
                               button: "Ok",
@@ -61,7 +61,7 @@
                 },
                 error : function(response){
                      swal({
-                         title: "Record Delete",
+                         title: "Record Deleted",
                               text: "You Record not Deleted",
                               icon: "error",
                               button: "Ok",});   

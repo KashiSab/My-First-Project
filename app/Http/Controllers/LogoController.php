@@ -18,17 +18,27 @@ class LogoController extends Controller
 		    'logo' => 'required|mimes:jpg,png',
 		]);
 
-        $change_logo  = new Logo();
+        $change_logo  = Logo::get()->first();
         
-        $fileName = $request->file('logo')->getClientOriginalName();
-        
-       $path  =  time() . '.' .  $request->file('logo')->move(public_path().'/assets/images', $fileName);
+         if($request->hasfile('logo'))
+        {
+            $fileName = $request->file('logo')->getClientOriginalName();
+            $request->file('logo')->move(public_path('/assets/images'), $request->file('logo')->getClientOriginalName());
+            $path  = 'assets/images/'.$fileName;
+    		
+            if($change_logo != null){
+                $change_logo->fill([	
+        			'logo' => $path
+        		])->save();
+            }else{
+                (new Logo())->fill([    
+                    'logo' => $path,
+                    'type' => 'image'   
+                ])->save();
+            }
+        }
+
         // $logo->move(public_path().'/assets/images', $filename);
-       	// dd($path);
-		$change_logo->fill([	
-			'logo' => $path,
-			'type' => 'image'	
-		])->save();
 
 		return redirect(url('logo'));          
 

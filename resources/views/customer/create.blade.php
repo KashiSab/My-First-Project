@@ -148,7 +148,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label>Products</label>
-                                   <select class="selectpicker form-control" name="product_id" id="product_id" data-live-search="true" multiple>
+                                   <select class="form-control" name="product_id" id="product_id">
                                    @foreach($productList as $product)
                                         <option value="{{$product->id}}">{{$product->name}} </option>
                                     @endforeach
