@@ -32,6 +32,9 @@ class User extends Authenticatable
 
     public function getLogoAttribute(){
         $logo  = Logo::latest()->first();
-        return $logo->logo;
+        if($logo)
+            return $logo->logo;
+        else
+            return '';
     }
 }

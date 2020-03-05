@@ -40,3 +40,14 @@ Route::get('/customer/show/{id}', 'CustomerController@show');
 // Change Logo
 Route::get('/logo', 'LogoController@Logo');
 Route::post('/logo/store', 'LogoController@store');
+// Expample Contact
+Route::get('/blogs', 'BlogController@index');
+Route::get('/blogs/create', 'BlogController@create');
+Route::post('/blogs/save', 'BlogController@store');
+
+Route::get('/blogs/edit/{id}', 'BlogController@edit');
+Route::post('/blogs/edit/{id}', 'BlogController@update');
+Route::get('/blogs/delete/{id}', 'BlogController@destroy');
+Route::get('/blogs/show/{id}', 'BlogController@show');
+
+Route::get('/blogs/{id}', 'BlogController@show');

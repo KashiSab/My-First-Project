@@ -15,7 +15,6 @@
             			<th>Customer Name</th>
             			<th>Phone Number</th>
             			<th>Paid</th>
-            			<!-- <th>Unpaid</th> -->
             			<th>Action</th>
             		</tr>
             	</thead>
@@ -25,7 +24,7 @@
                             <td>{{$customer->name}}</td>
                             <td>{{$customer->phone_no}}</td>
                             <td>{{$customer->paid == 1 ? 'Yes' : 'No'}}</td>
-                            <!-- <td>{{$customer->unpaid}}</td> -->
+                            
                             <td><a href="{{url('customer/show', [$customer->id])}}"><i class="fa fa-eye"></i></a>
                             	<a href="{{url('customer/edit', [$customer->id])}}"><i class="fa fa-edit"></i></a>
                         	<a data-id="{{$customer->id}}" href="#" class="delete-btn"><i class="fa fa-trash"></i></a></td>
@@ -38,7 +37,6 @@
 </div>
 @endsection
 @section('js')
-<!-- {{url('customer', [$customer->id])}} -->
 <script type="text/javascript">
 
     $(document).on('click','a.delete-btn',function(){
